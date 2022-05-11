@@ -22,47 +22,47 @@ npm install @resourge/pagination --save
 import { pagination } from '@resourge/pagination';
 
 pagination({
-	/**
-	 * Current page
-	 */
-	page: 0,
-	/**
-	 * Total page number
-	 */
-	totalPages: 10,
-	/**
-	 * Number of "pages" displaying.
-	 * * Note: Current page will try to stay in the middle
-	 */
-	displayRange: 5,
-	/**
-	 * If pagination is disabled
-	 */
-	disabled: false,
-	/**
-	 * Method for "page" click
-	 */
-	onPageChange: (page: number) => {},
-	/**
-	 * Defines the "page" for first page
-	 * * When undefined the item will not be included
-	 */
-	firstLabel: () => 'First Page',
-	/**
-	 * Defines the "page" for previous page
-	 * * When undefined the item will not be included
-	 */
-	previousLabel: () => 'Previous Page',
-	/**
-	 * Defines the "page" for next page
-	 * * When undefined the item will not be included
-	 */
-	nextLabel: () => 'Next Page',
-	/**
-	 * Defines the "page" for last page
-	 * * When undefined the item will not be included
-	 */
-	lastLabel: () => 'Last Page'
+  /**
+   * Current page
+   */
+  page: 0,
+  /**
+   * Total page number
+   */
+  totalPages: 10,
+  /**
+   * Number of "pages" displaying.
+   * * Note: Current page will try to stay in the middle
+   */
+  displayRange: 5,
+  /**
+   * If pagination is disabled
+   */
+  disabled: false,
+  /**
+   * Method for "page" click
+   */
+  onPageChange: (page: number) => {},
+  /**
+   * Defines the "page" for first page
+   * * When undefined the item will not be included
+   */
+  firstLabel: () => 'First Page',
+  /**
+   * Defines the "page" for previous page
+   * * When undefined the item will not be included
+   */
+  previousLabel: () => 'Previous Page',
+  /**
+   * Defines the "page" for next page
+   * * When undefined the item will not be included
+   */
+  nextLabel: () => 'Next Page',
+  /**
+   * Defines the "page" for last page
+   * * When undefined the item will not be included
+   */
+  lastLabel: () => 'Last Page'
 })
 ```
 
