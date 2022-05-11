@@ -2,6 +2,7 @@ import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import fs from 'fs';
+import path from 'path';
 import dts from 'rollup-plugin-dts';
 import size from 'rollup-plugin-size';
 import { terser } from 'rollup-plugin-terser';
@@ -71,11 +72,14 @@ const getPackage = (
 	SOURCE_FOLDER,
 	PACKAGE_NAME,
 	dependencies,
-	peerDependencies
+	peerDependencies,
+	keywords
 ) => {
 	const OUTPUT_DIR = `${SOURCE_FOLDER}/dist`
 	const SOURCE_INDEX_FILE = `${SOURCE_FOLDER}/src/index.ts`
 	const filename = PACKAGE_NAME;
+	const { url } = repository;
+	const homepage = path.join(url.replace('.git', ''), '/tree/master/', `${SOURCE_FOLDER}/README.md`);
 
 	const packageJSON = {
 		name: `@resourge/${PACKAGE_NAME}`,
@@ -91,7 +95,9 @@ const getPackage = (
 		license: LICENSE,
 		repository,
 		peerDependencies,
-		dependencies
+		dependencies,
+		keywords,
+		homepage
 	};
 
 	fs.writeFileSync(`${SOURCE_FOLDER}/package.json`, JSON.stringify(packageJSON, null, 4), 'utf-8');
@@ -308,21 +314,43 @@ export default function rollup() {
 			'./src/lib/pagination',
 			'pagination',
 			undefined,
-			undefined
+			undefined,
+			[
+				'javascript',
+				'pagination',
+				'typescript'
+			]
 		),
 
 		...getPackage(
 			'./src/lib/react-hook-pagination',
 			'react-hook-form',
 			Object.fromEntries(Object.entries(dependencies).filter(([key]) => key.includes('react'))),
-			Object.fromEntries(Object.entries(peerDependencies).filter(([key]) => key.includes('react')))
+			Object.fromEntries(Object.entries(peerDependencies).filter(([key]) => key.includes('react'))),
+			[
+				'javascript',
+				'pagination',
+				'typescript',
+				'react',
+				'hooks',
+				'react-hooks'
+			]
 		),
 
 		...getPackage(
 			'./src/lib/react-pagination',
 			'react-pagination',
 			dependencies,
-			peerDependencies
+			peerDependencies,
+			[
+				'javascript',
+				'pagination',
+				'typescript',
+				'react',
+				'hooks',
+				'react-hooks',
+				'react-component'
+			]
 		)
 	];
 }

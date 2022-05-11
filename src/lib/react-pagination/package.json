@@ -22,5 +22,15 @@
     },
     "dependencies": {
         "@emotion/css": "^11.9.0"
-    }
+    },
+    "keywords": [
+        "javascript",
+        "pagination",
+        "react",
+        "hooks",
+        "typescript",
+        "react-hooks",
+        "react-component"
+    ],
+    "homepage": "https:/github.com/resourge/pagination/tree/master/src/lib/react-pagination/README.md"
 }

@@ -20,5 +20,14 @@
     "peerDependencies": {
         "react": "^16.8.0 || ^17 || ^18"
     },
-    "dependencies": {}
+    "dependencies": {},
+    "keywords": [
+        "javascript",
+        "pagination",
+        "react",
+        "hooks",
+        "typescript",
+        "react-hooks"
+    ],
+    "homepage": "https:/github.com/resourge/pagination/tree/master/src/lib/react-hook-pagination/README.md"
 }
