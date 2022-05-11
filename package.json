@@ -8,6 +8,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "javascript",
+    "pagination",
+    "react",
+    "hooks",
+    "typescript",
+    "react-hooks"
+  ],
   "files": [
     "dist"
   ],
