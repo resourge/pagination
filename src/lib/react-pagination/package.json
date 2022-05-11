@@ -1,0 +1,26 @@
+{
+    "name": "@resourge/react-pagination",
+    "unpkg": "./dist/umd/react-pagination.production.min.js",
+    "main": "./dist/main.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "dist"
+    ],
+    "author": "resourge",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/resourge/pagination.git"
+    },
+    "peerDependencies": {
+        "react": "^16.8.0 || ^17 || ^18"
+    },
+    "dependencies": {
+        "@emotion/css": "^11.9.0"
+    }
+}

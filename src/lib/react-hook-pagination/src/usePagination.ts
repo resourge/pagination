@@ -1,14 +1,33 @@
 import React, { useMemo } from 'react';
 
-import { pagination, PaginationConfig } from '../pagination/pagination';
+import { pagination, PaginationConfig } from '../../pagination/src/pagination';
 
 export type UsePaginationProps = Pick<PaginationConfig, 
 	'page' | 'totalPages' | 'displayRange' | 'disabled'
-	> & {
+> & {
+	/**
+	 * Method for "page" click
+	 */
 	onPageChange?: PaginationConfig['onPageChange']
+	/**
+	 * Method to render the "page" for first page
+	 * * When undefined the item will not be included
+	 */
 	renderFirst?: React.ReactNode
+	/**
+	 * Method to render the "page" for previous page
+	 * * When undefined the item will not be included
+	 */
 	renderPrevious?: React.ReactNode
+	/**
+	 * Method to render the "page" for next page
+	 * * When undefined the item will not be included
+	 */
 	renderNext?: React.ReactNode
+	/**
+	 * Method to render the "page" for last page
+	 * * When undefined the item will not be included
+	 */
 	renderLast?: React.ReactNode
 }
 

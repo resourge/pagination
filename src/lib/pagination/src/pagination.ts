@@ -27,32 +27,80 @@ const getMinMaxPage = (
 }
 
 type Page = {
+	/**
+	 * "Page" label
+	 */
 	label: any
+	/**
+	 * Type of "page".
+	 */
 	type: 'page' | 'nextPage' | 'previousPage' | 'firstPage' | 'lastPage'
+	/**
+	 * Page number
+	 */
 	page: number
+	/**
+	 * If "page" is disabled
+	 */
 	disabled?: boolean
+	/**
+	 * If "page" is equal to currentPage
+	 */
 	selected?: boolean
+	/**
+	 * Method to change page.
+	 */
 	onClick: () => void
 }
 
 export type PaginationConfig = {
+	/**
+	 * Current page
+	 */
 	page: number
+	/**
+	 * Total page number
+	 */
 	totalPages: number
-	displayRange: number
+	/**
+	 * Number of "pages" displaying.
+	 * * Note: Current page will try to stay in the middle
+	 */
+	displayRange?: number
+	/**
+	 * If pagination is disabled
+	 */
 	disabled?: boolean
-
+	/**
+	 * Method for "page" click
+	 */
 	onPageChange: (page: number) => void
+	/**
+	 * Defines the "page" for first page
+	 * * When undefined the item will not be included
+	 */
 	firstLabel?: any | (() => any)
+	/**
+	 * Defines the "page" for previous page
+	 * * When undefined the item will not be included
+	 */
 	previousLabel?: any | (() => any)
-
+	/**
+	 * Defines the "page" for next page
+	 * * When undefined the item will not be included
+	 */
 	nextLabel?: any | (() => any)
+	/**
+	 * Defines the "page" for last page
+	 * * When undefined the item will not be included
+	 */
 	lastLabel?: any | (() => any)
 }
 
 export const pagination = ({
 	page,
 	totalPages,
-	displayRange,
+	displayRange = 5,
 	disabled = false,
 
 	onPageChange,
