@@ -4,7 +4,7 @@ import replace from '@rollup/plugin-replace';
 import fs from 'fs';
 import path from 'path';
 import dts from 'rollup-plugin-dts';
-import size from 'rollup-plugin-size';
+import filsesize from 'rollup-plugin-filesize';
 import { terser } from 'rollup-plugin-terser';
 
 import { 
@@ -39,7 +39,7 @@ const babelPresetEnv = ['@babel/preset-env', {
 }]
 
 const defaultExtPlugin = [
-	size(),
+	filsesize(),
 	nodeResolve({
 		extensions: ['.tsx', '.ts']
 	})
@@ -148,7 +148,6 @@ const getPackage = (
 				banner: banner
 			}],
 			plugins: [
-				size(),
 				dts()
 			]
 		}
@@ -295,7 +294,7 @@ const getPackage = (
 				banner: banner
 			},
 			plugins: [
-				size(),
+				filsesize(),
 				replace({
 					preventAssignment: true,
 					devFile: `${UMD_DIR}/${filename}.development.js`.replace(OUTPUT_DIR, '.'),
