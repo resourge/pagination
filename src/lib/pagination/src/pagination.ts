@@ -97,6 +97,11 @@ export type PaginationConfig = {
 	lastLabel?: any | (() => any)
 }
 
+/**
+ * Method to generate an array of "pages"
+ * @param config {@link PaginationConfig} 
+ * @returns an array containing the "pages"
+ */
 export const pagination = ({
 	page,
 	totalPages,

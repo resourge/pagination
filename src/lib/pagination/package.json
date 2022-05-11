@@ -20,10 +20,7 @@
     "keywords": [
         "javascript",
         "pagination",
-        "react",
-        "hooks",
-        "typescript",
-        "react-hooks"
+        "typescript"
     ],
     "homepage": "https:/github.com/resourge/pagination/tree/master/src/lib/pagination/README.md"
 }

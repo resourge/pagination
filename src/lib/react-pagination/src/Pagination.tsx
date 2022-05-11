@@ -24,6 +24,9 @@ export type PaginationProps = UsePaginationProps & {
 	customStyles?: CustomStyles
 }
 
+/**
+ * Pagination component
+ */
 export const Pagination: React.FC<PaginationProps> = ({ 
 	className,
 	page,

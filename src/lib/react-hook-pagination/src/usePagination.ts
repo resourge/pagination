@@ -31,6 +31,11 @@ export type UsePaginationProps = Pick<PaginationConfig,
 	renderLast?: React.ReactNode
 }
 
+/**
+ * Hook to generate an array of "pages"
+ * @param props {@link UsePaginationProps} 
+ * @returns an array containing the "pages"
+ */
 export const usePagination = (
 	props: UsePaginationProps
 ) => {
