@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/resourge/pagination/compare/v1.0.1...v1.0.2) (2022-06-21)
+
+
+### Bug Fixes
+
+* **pagination:** fix not send customStyles to childs ([3d93dd3](https://github.com/resourge/pagination/commit/3d93dd328575783286d8e0dfe64c02a1c52af67b))
+
 ## [1.0.1](https://github.com/resourge/pagination/compare/v1.0.0...v1.0.1) (2022-05-11)
 
 
