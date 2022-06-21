@@ -53,6 +53,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 						disabled={disabled}
 						selected={selected}
 						onClick={onClick}
+						customStyles={customStyles}
 						href={getHref && getHref(page)}
 					>
 						{ label }

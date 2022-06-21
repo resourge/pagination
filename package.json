@@ -1,6 +1,7 @@
 {
   "name": "@resourge/pagination",
   "version": "0.0.0-development",
+  "description": "This is a set of small packages aiming to simplify the pagination process.",
   "main": "./dist/main.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
