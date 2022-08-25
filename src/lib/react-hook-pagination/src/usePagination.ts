@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 
 import { pagination, PaginationConfig } from '../../pagination/src/pagination';
 
@@ -41,9 +41,13 @@ export const usePagination = (
 ) => {
 	const onPageChange = props.onPageChange ?? (() => {})
 
+	const onPageChangeRef = useRef<PaginationConfig['onPageChange']>(onPageChange);
+
+	onPageChangeRef.current = onPageChange;
+
 	return useMemo(() => pagination({
 		...props,
-		onPageChange,
+		onPageChange: (page: number) => onPageChangeRef.current(page),
 		firstLabel: props.renderFirst,
 		previousLabel: props.renderPrevious,
 		nextLabel: props.renderNext,
