@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/resourge/pagination/compare/v1.0.2...v1.0.3) (2022-08-25)
+
+
+### Bug Fixes
+
+* **usepagination:** fix usepagination not using the updated onpagechange function ([f71f433](https://github.com/resourge/pagination/commit/f71f4335419d3f0837e0b751f8c54f978bd894ac))
+
 ## [1.0.2](https://github.com/resourge/pagination/compare/v1.0.1...v1.0.2) (2022-06-21)
 
 
