@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/resourge/pagination/compare/v1.0.3...v1.1.0) (2022-09-22)
+
+
+### Features
+
+* **package:** update package ([548a026](https://github.com/resourge/pagination/commit/548a0264be1e7c74c9f8c055130166fec61bc524))
+
 ## [1.0.3](https://github.com/resourge/pagination/compare/v1.0.2...v1.0.3) (2022-08-25)
 
 
