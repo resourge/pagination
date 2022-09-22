@@ -32,13 +32,17 @@ type Page = {
 	 */
 	label: any
 	/**
-	 * Type of "page".
+	 * Method to change page.
 	 */
-	type: 'page' | 'nextPage' | 'previousPage' | 'firstPage' | 'lastPage'
+	onClick: () => void
 	/**
 	 * Page number
 	 */
 	page: number
+	/**
+	 * Type of "page".
+	 */
+	type: 'page' | 'nextPage' | 'previousPage' | 'firstPage' | 'lastPage'
 	/**
 	 * If "page" is disabled
 	 */
@@ -47,13 +51,13 @@ type Page = {
 	 * If "page" is equal to currentPage
 	 */
 	selected?: boolean
-	/**
-	 * Method to change page.
-	 */
-	onClick: () => void
 }
 
 export type PaginationConfig = {
+	/**
+	 * Method for "page" click
+	 */
+	onPageChange: (page: number) => void
 	/**
 	 * Current page
 	 */
@@ -63,38 +67,34 @@ export type PaginationConfig = {
 	 */
 	totalPages: number
 	/**
-	 * Number of "pages" displaying.
-	 * * Note: Current page will try to stay in the middle
-	 */
-	displayRange?: number
-	/**
 	 * If pagination is disabled
 	 */
 	disabled?: boolean
 	/**
-	 * Method for "page" click
+	 * Number of "pages" displaying.
+	 * * Note: Current page will try to stay in the middle
 	 */
-	onPageChange: (page: number) => void
+	displayRange?: number
 	/**
 	 * Defines the "page" for first page
 	 * * When undefined the item will not be included
 	 */
 	firstLabel?: any | (() => any)
 	/**
-	 * Defines the "page" for previous page
+	 * Defines the "page" for last page
 	 * * When undefined the item will not be included
 	 */
-	previousLabel?: any | (() => any)
+	lastLabel?: any | (() => any)
 	/**
 	 * Defines the "page" for next page
 	 * * When undefined the item will not be included
 	 */
 	nextLabel?: any | (() => any)
 	/**
-	 * Defines the "page" for last page
+	 * Defines the "page" for previous page
 	 * * When undefined the item will not be included
 	 */
-	lastLabel?: any | (() => any)
+	previousLabel?: any | (() => any)
 }
 
 /**
@@ -149,7 +149,7 @@ export const pagination = ({
 			label: i + 1,
 			page: i,
 			type: 'page',
-			disabled: disabled,
+			disabled,
 			selected: page === i,
 			onClick: () => {
 				onPageChange(i);

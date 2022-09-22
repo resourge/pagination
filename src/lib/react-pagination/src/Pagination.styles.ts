@@ -8,8 +8,9 @@ export type StylesProps = {
 export type CustomStyles = {
 	/**
 	 * @param base - Default styles for ul. {@link CSSObject}
+	 * @param props - Props containing if "page" is disabled or selected. {@link StylesProps}
 	 */
-	ul?: (base: CSSObject) => CSSObject
+	a?: (base: CSSObject, props: StylesProps) => CSSObject
 	/**
 	 * @param base - Default styles for ul. {@link CSSObject}
 	 * @param props - Props containing if "page" is disabled or selected. {@link StylesProps}
@@ -17,9 +18,8 @@ export type CustomStyles = {
 	li?: (base: CSSObject, props: StylesProps) => CSSObject
 	/**
 	 * @param base - Default styles for ul. {@link CSSObject}
-	 * @param props - Props containing if "page" is disabled or selected. {@link StylesProps}
 	 */
-	a?: (base: CSSObject, props: StylesProps) => CSSObject
+	ul?: (base: CSSObject) => CSSObject
 }
 
 const PrimaryColor = '#2E3641';
@@ -66,7 +66,10 @@ export const DefaultLiCss = ({ disabled, selected }: StylesProps): CSSObject => 
 	'& > *': {
 		color: PrimaryColor
 	},
-	...(disabled ? pageItemDisabled({ disabled, selected }) : {}),
+	...(disabled ? pageItemDisabled({
+		disabled,
+		selected 
+	}) : {}),
 	'&:hover': {
 		backgroundColor: 'rgba(46,54,65, 0.15)',
 		color: PrimaryColor

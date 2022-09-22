@@ -15,20 +15,20 @@ export type UsePaginationProps = Pick<PaginationConfig,
 	 */
 	renderFirst?: React.ReactNode
 	/**
-	 * Method to render the "page" for previous page
+	 * Method to render the "page" for last page
 	 * * When undefined the item will not be included
 	 */
-	renderPrevious?: React.ReactNode
+	renderLast?: React.ReactNode
 	/**
 	 * Method to render the "page" for next page
 	 * * When undefined the item will not be included
 	 */
 	renderNext?: React.ReactNode
 	/**
-	 * Method to render the "page" for last page
+	 * Method to render the "page" for previous page
 	 * * When undefined the item will not be included
 	 */
-	renderLast?: React.ReactNode
+	renderPrevious?: React.ReactNode
 }
 
 /**

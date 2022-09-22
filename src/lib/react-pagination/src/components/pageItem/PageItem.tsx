@@ -2,7 +2,12 @@ import React from 'react';
 
 import { css, CSSObject } from '@emotion/css';
 
-import { CustomStyles, DefaultACss, DefaultLiCss, StylesProps } from '../../Pagination.styles';
+import {
+	CustomStyles,
+	DefaultACss,
+	DefaultLiCss,
+	StylesProps
+} from '../../Pagination.styles'
 
 export type StylesConfigFunction<Props> = (
 	base: CSSObject,
@@ -11,9 +16,9 @@ export type StylesConfigFunction<Props> = (
 
 type Props = {
 	children?: React.ReactNode
-	onClick?: () => void
-	href?: string
 	customStyles?: Omit<CustomStyles, 'ul'>
+	href?: string
+	onClick?: () => void
 } & StylesProps
 
 const PageItem: React.FC<Props> = ({
@@ -21,7 +26,8 @@ const PageItem: React.FC<Props> = ({
 	disabled, selected, customStyles
 }) => {
 	const cssProps = {
-		disabled, selected
+		disabled,
+		selected
 	}
 
 	const defaultLiCss = DefaultLiCss(cssProps);
@@ -31,14 +37,15 @@ const PageItem: React.FC<Props> = ({
 
 	return (
 		<li
+			aria-label={typeof children === 'number' ? `Page ${children}` : undefined}
 			className={css(liCss)}
 			role={'navigation'}
-			aria-label={typeof children === 'number' ? `Page ${children}` : undefined}
 		>
 			<a 
 				className={css(aCss)}
 				href={href} 
 				rel="noreferrer" 
+				target="_blank" 
 				onClick={(event) => {
 					if ( event.ctrlKey || event.metaKey ) {
 						return;
@@ -49,8 +56,7 @@ const PageItem: React.FC<Props> = ({
 					if ( !disabled ) {
 						onClick && onClick();
 					}
-				}} 
-				target="_blank"
+				}}
 			>
 				{ children }
 			</a>

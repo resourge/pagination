@@ -12,16 +12,16 @@ export type PaginationProps = UsePaginationProps & {
 	/**
 	 * Method to define the "page" `href`
 	 */
-	getHref?: (page: number) => string
-	/**
-	 * Method to define the "page" `href`
-	 */
 	className?: string
 	/**
 	 * Defines custom styles for the ul, li, a.
 	 * * Note: Use @emotion/css to convert styles into a classname
 	 */
 	customStyles?: CustomStyles
+	/**
+	 * Method to define the "page" `href`
+	 */
+	getHref?: (page: number) => string
 }
 
 /**
@@ -47,14 +47,16 @@ export const Pagination: React.FC<PaginationProps> = ({
 		<ul className={`${css(ulCss)}${className ? ` ${className}` : ''}`}>
 			{
 				pages
-				.map(({ label, page, disabled, selected, onClick }, index) => (
+				.map(({
+					label, page, disabled, selected, onClick 
+				}, index) => (
 					<PageItem 
 						key={`pagination_page_item_${index}`}
+						customStyles={customStyles}
 						disabled={disabled}
+						href={getHref && getHref(page)}
 						selected={selected}
 						onClick={onClick}
-						customStyles={customStyles}
-						href={getHref && getHref(page)}
 					>
 						{ label }
 					</PageItem>

@@ -7,5 +7,6 @@ it('App', () => {
 		<App />
 	)
 	
-	expect(screen.getByText('App')).toBeInTheDocument()
+	expect(screen.getByText('App'))
+	.toBeInTheDocument()
 })
