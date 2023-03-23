@@ -1,11 +1,11 @@
 import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import terser from '@rollup/plugin-terser';
 import fs, { readFileSync } from 'fs';
 import path from 'path';
 import dts from 'rollup-plugin-dts';
 import filsesize from 'rollup-plugin-filesize';
-import { terser } from 'rollup-plugin-terser';
 
 const pkg = JSON.parse(readFileSync('package.json', {
 	encoding: 'utf8' 
