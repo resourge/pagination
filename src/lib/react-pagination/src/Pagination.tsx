@@ -3,9 +3,9 @@ import React from 'react';
 
 import { css } from '@emotion/css';
 
-import { usePagination, UsePaginationProps } from '../../react-hook-pagination/src/usePagination';
+import { usePagination, type UsePaginationProps } from '../../react-hook-pagination/src/usePagination';
 
-import { DefaultUlCss, CustomStyles } from './Pagination.styles';
+import { DefaultUlCss, type CustomStyles } from './Pagination.styles';
 import PageItem from './components/pageItem/PageItem';
 
 export type PaginationProps = UsePaginationProps & {

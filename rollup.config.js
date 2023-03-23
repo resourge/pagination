@@ -1,17 +1,21 @@
 import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import fs from 'fs';
+import fs, { readFileSync } from 'fs';
 import path from 'path';
 import dts from 'rollup-plugin-dts';
 import filsesize from 'rollup-plugin-filesize';
 import { terser } from 'rollup-plugin-terser';
 
-import { 
+const pkg = JSON.parse(readFileSync('package.json', {
+	encoding: 'utf8' 
+}));
+
+const {
 	main,
 	module,
 	types,
-	private as _private,
+	private: _private,
 	publishConfig,
 	files,
 	author,
@@ -19,7 +23,7 @@ import {
 	repository,
 	peerDependencies,
 	dependencies
-} from './package.json';
+} = pkg
 
 const external = ['react', '@emotion/css'];
 const globals = {

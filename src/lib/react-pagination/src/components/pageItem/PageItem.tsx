@@ -1,12 +1,12 @@
-import React from 'react';
+import { type FC, type ReactNode } from 'react';
 
-import { css, CSSObject } from '@emotion/css';
+import { css, type CSSObject } from '@emotion/css';
 
 import {
-	CustomStyles,
+	type CustomStyles,
 	DefaultACss,
 	DefaultLiCss,
-	StylesProps
+	type StylesProps
 } from '../../Pagination.styles'
 
 export type StylesConfigFunction<Props> = (
@@ -15,13 +15,13 @@ export type StylesConfigFunction<Props> = (
 ) => CSSObject;
 
 type Props = {
-	children?: React.ReactNode
+	children?: ReactNode
 	customStyles?: Omit<CustomStyles, 'ul'>
 	href?: string
 	onClick?: () => void
 } & StylesProps
 
-const PageItem: React.FC<Props> = ({
+const PageItem: FC<Props> = ({
 	href, children, onClick, 
 	disabled, selected, customStyles
 }) => {

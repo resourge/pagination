@@ -1,6 +1,6 @@
-import React, { useMemo, useRef } from 'react';
+import { type ReactNode, useMemo, useRef } from 'react';
 
-import { pagination, PaginationConfig } from '../../pagination/src/pagination';
+import { pagination, type PaginationConfig } from '../../pagination/src/pagination';
 
 export type UsePaginationProps = Pick<PaginationConfig, 
 	'page' | 'totalPages' | 'displayRange' | 'disabled'
@@ -13,22 +13,22 @@ export type UsePaginationProps = Pick<PaginationConfig,
 	 * Method to render the "page" for first page
 	 * * When undefined the item will not be included
 	 */
-	renderFirst?: React.ReactNode
+	renderFirst?: ReactNode
 	/**
 	 * Method to render the "page" for last page
 	 * * When undefined the item will not be included
 	 */
-	renderLast?: React.ReactNode
+	renderLast?: ReactNode
 	/**
 	 * Method to render the "page" for next page
 	 * * When undefined the item will not be included
 	 */
-	renderNext?: React.ReactNode
+	renderNext?: ReactNode
 	/**
 	 * Method to render the "page" for previous page
 	 * * When undefined the item will not be included
 	 */
-	renderPrevious?: React.ReactNode
+	renderPrevious?: ReactNode
 }
 
 /**
@@ -47,7 +47,9 @@ export const usePagination = (
 
 	return useMemo(() => pagination({
 		...props,
-		onPageChange: (page: number) => onPageChangeRef.current(page),
+		onPageChange: (page: number) => {
+			onPageChangeRef.current(page); 
+		},
 		firstLabel: props.renderFirst,
 		previousLabel: props.renderPrevious,
 		nextLabel: props.renderNext,
