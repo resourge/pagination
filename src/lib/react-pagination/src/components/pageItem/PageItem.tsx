@@ -1,4 +1,5 @@
-import React, { type ReactNode } from 'react';
+import React from 'react';
+import { type ReactNode } from 'react';
 
 import { css, type CSSObject } from '@emotion/css';
 
