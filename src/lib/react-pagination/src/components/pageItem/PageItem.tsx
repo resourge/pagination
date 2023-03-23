@@ -1,4 +1,4 @@
-import { type FC, type ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import { css, type CSSObject } from '@emotion/css';
 
@@ -21,7 +21,7 @@ type Props = {
 	onClick?: () => void
 } & StylesProps
 
-const PageItem: FC<Props> = ({
+const PageItem: React.FC<Props> = ({
 	href, children, onClick, 
 	disabled, selected, customStyles
 }) => {
