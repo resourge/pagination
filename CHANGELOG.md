@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/resourge/pagination/compare/v1.1.1...v1.1.2) (2023-03-23)
+
+
+### Bug Fixes
+
+* **pageitem:** not having React import ([793a7a1](https://github.com/resourge/pagination/commit/793a7a10f1165cd2788058b543957359d9fee597))
+
 ## [1.1.1](https://github.com/resourge/pagination/compare/v1.1.0...v1.1.1) (2023-03-23)
 
 
