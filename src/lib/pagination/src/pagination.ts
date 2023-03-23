@@ -124,7 +124,7 @@ export const pagination = ({
 			label: typeof firstLabel === 'function' ? firstLabel() : firstLabel,
 			type: 'firstPage',
 			page: 0,
-			disabled: disabled || page <= 0,
+			disabled: disabled || page <= 0 || totalPages <= 0,
 			onClick: () => {
 				onPageChange(0);
 			}
@@ -137,7 +137,7 @@ export const pagination = ({
 			label: typeof previousLabel === 'function' ? previousLabel() : previousLabel,
 			type: 'previousPage',
 			page: previousPage,
-			disabled: disabled || (previousPage < 0),
+			disabled: disabled || (previousPage < 0) || totalPages <= 0,
 			onClick: () => {
 				onPageChange(previousPage);
 			}
@@ -163,7 +163,7 @@ export const pagination = ({
 			label: typeof nextLabel === 'function' ? nextLabel() : nextLabel,
 			page: nextPage,
 			type: 'nextPage',
-			disabled: disabled || nextPage === totalPages,
+			disabled: disabled || nextPage === totalPages || totalPages <= 0,
 			onClick: () => {
 				onPageChange(nextPage);
 			}
@@ -176,7 +176,7 @@ export const pagination = ({
 			label: typeof lastLabel === 'function' ? lastLabel() : lastLabel,
 			page: lastPage,
 			type: 'lastPage',
-			disabled: disabled || page === lastPage,
+			disabled: disabled || page === lastPage || totalPages <= 0,
 			onClick: () => {
 				onPageChange(lastPage);
 			}
