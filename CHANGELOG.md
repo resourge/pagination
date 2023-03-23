@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/resourge/pagination/compare/v1.1.2...v1.1.3) (2023-03-23)
+
+
+### Bug Fixes
+
+* **react-pagination:** remove need for jsx ([c425bce](https://github.com/resourge/pagination/commit/c425bcec15004a3c5b77d13169fdcca95524f8eb))
+
 ## [1.1.2](https://github.com/resourge/pagination/compare/v1.1.1...v1.1.2) (2023-03-23)
 
 
