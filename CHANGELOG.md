@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/resourge/pagination/compare/v1.1.0...v1.1.1) (2023-03-23)
+
+
+### Bug Fixes
+
+* **pagination:** fix next and last button working when totalPages is 0 ([cea465f](https://github.com/resourge/pagination/commit/cea465f2d09e5b2d22a328b0cca3b98bb5937772))
+
 # [1.1.0](https://github.com/resourge/pagination/compare/v1.0.3...v1.1.0) (2022-09-22)
 
 
