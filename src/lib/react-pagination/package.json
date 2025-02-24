@@ -21,7 +21,7 @@
         "react": ">=16.8.0"
     },
     "dependencies": {
-        "@emotion/css": "^11.10.6"
+        "@emotion/css": "^11.13.5"
     },
     "keywords": [
         "javascript",

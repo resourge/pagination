@@ -1,4 +1,4 @@
-import { type CSSObject } from '@emotion/css'
+import { type CSSObject } from '@emotion/css/dist/declarations/src/create-instance'
 
 export type StylesProps = {
 	disabled?: boolean
