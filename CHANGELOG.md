@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/resourge/pagination/compare/v1.1.3...v1.2.0) (2025-02-24)
+
+
+### Features
+
+* **pagination:** improve code ([a446788](https://github.com/resourge/pagination/commit/a446788f5a4136743295c2f0eda179c6035e0302))
+
 ## [1.1.3](https://github.com/resourge/pagination/compare/v1.1.2...v1.1.3) (2023-03-23)
 
 
