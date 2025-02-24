@@ -1,7 +1,9 @@
 import React from 'react';
 import { type ReactNode } from 'react';
 
-import { css, type CSSObject } from '@emotion/css';
+import { css } from '@emotion/css';
+
+import { type CSSObject } from '@emotion/css/dist/declarations/src/create-instance';
 
 import {
 	type CustomStyles,

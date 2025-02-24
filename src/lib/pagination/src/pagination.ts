@@ -5,15 +5,13 @@ const getMinMaxPage = (
 	totalPage: number
 ) => {
 	const diff = Math.floor(displayRange / 2);
-	let minPage = page - diff;
-	let maxPage = page + diff;
+	let minPage = Math.max(0, page - diff);
+	let maxPage = Math.min(totalPage - 1, page + diff);
 	
 	if ( minPage < 0 ) {
-		minPage = 0;
 		maxPage = totalPage > displayRange ? displayRange - 1 : totalPage;
 	}
 	if ( maxPage >= totalPage ) {
-		maxPage = totalPage - 1;
 		minPage = totalPage - displayRange;
 		if ( maxPage < displayRange ) {
 			minPage = 0;
@@ -119,85 +117,36 @@ export const pagination = ({
 		maxPage
 	} = getMinMaxPage(page <= totalPages ? page : 0, displayRange, totalPages);
 
-	const pages: Page[] = firstLabel ? [
-		{
-			label: typeof firstLabel === 'function' ? firstLabel() : firstLabel,
-			type: 'firstPage',
-			page: 0,
-			disabled: disabled || page <= 0 || totalPages <= 0,
+	const createPage = (label: any, type: Page['type'], page: number): Page | null =>
+		label ? {
+			label: typeof label === 'function' ? label() : label,
+			type,
+			page,
+			disabled: disabled || page < 0 || page >= totalPages,
 			onClick: () => {
-				onPageChange(0);
-			}
-		}
-	] : [];
-	if ( previousLabel ) {
-		const previousPage = page - 1;
+				onPageChange(page); 
+			} 
+		} : null;
 
-		pages.push({
-			label: typeof previousLabel === 'function' ? previousLabel() : previousLabel,
-			type: 'previousPage',
-			page: previousPage,
-			disabled: disabled || (previousPage < 0) || totalPages <= 0,
-			onClick: () => {
-				onPageChange(previousPage);
-			}
-		})
-	}
-
-	for (let i = minPage; i <= maxPage; i++) {
-		pages.push({
-			label: i + 1,
-			page: i,
-			type: 'page',
-			disabled,
-			selected: page === i,
-			onClick: () => {
-				onPageChange(i);
-			}
-		});
-	}
-
-	if ( nextLabel ) {
-		const nextPage = page + 1;
-		pages.push({
-			label: typeof nextLabel === 'function' ? nextLabel() : nextLabel,
-			page: nextPage,
-			type: 'nextPage',
-			disabled: disabled || nextPage === totalPages || totalPages <= 0,
-			onClick: () => {
-				onPageChange(nextPage);
-			}
-		})
-	}
-
-	if ( lastLabel ) {
-		const lastPage = totalPages - 1;
-		pages.push({
-			label: typeof lastLabel === 'function' ? lastLabel() : lastLabel,
-			page: lastPage,
-			type: 'lastPage',
-			disabled: disabled || page === lastPage || totalPages <= 0,
-			onClick: () => {
-				onPageChange(lastPage);
-			}
-		})
-	}
-
-	/* 
-	if ( pages[0] !== '1' ) {
-		if ( pages[0] !== '2' ) {
-			pages.unshift('....');
-		}
-		pages.unshift('1');
-	} 
-
-	if ( pages[pages.length - 1] !== totalPage.toString() ) {
-		if ( pages[pages.length - 1] !== (totalPage - 1).toString() ) {
-			pages.push('....');
-		} 
-		pages.push(totalPage.toString());
-	} 
-	*/
-
-	return pages;
+	return [
+		createPage(firstLabel, 'firstPage', 0),
+		createPage(previousLabel, 'previousPage', page - 1),
+		...Array.from({
+			length: maxPage - minPage + 1 
+		}, (_, i) => {
+			const p = minPage + i;
+			return {
+				label: p + 1,
+				page: p,
+				type: 'page',
+				disabled,
+				selected: page === p,
+				onClick: () => {
+					onPageChange(p); 
+				} 
+			};
+		}),
+		createPage(nextLabel, 'nextPage', page + 1),
+		createPage(lastLabel, 'lastPage', totalPages - 1)
+	].filter(Boolean) as Page[];
 }
